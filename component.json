@@ -1,0 +1,355 @@
+{
+    "title": "PolicyStatesClient",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/azure.com/policyinsights-policyStates/2018-07-01-preview/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://management.azure.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "azure_auth": {
+                "label": "Azure Active Directory OAuth2 Flow",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://login.microsoftonline.com/common/oauth2/authorize"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "Operations_List": {
+            "main": "./lib/actions/Operations_List.js",
+            "title": "Lists available operations.",
+            "description": "Lists available operations.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Operations_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PolicyStates_ListQueryResultsForManagementGroup": {
+            "main": "./lib/actions/PolicyStates_ListQueryResultsForManagementGroup.js",
+            "title": "Queries policy states for the resources under the management group.",
+            "description": "Queries policy states for the resources under the management group.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PolicyStates_ListQueryResultsForManagementGroup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PolicyStates_SummarizeForManagementGroup": {
+            "main": "./lib/actions/PolicyStates_SummarizeForManagementGroup.js",
+            "title": "Summarizes policy states for the resources under the management group.",
+            "description": "Summarizes policy states for the resources under the management group.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PolicyStates_SummarizeForManagementGroup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PolicyStates_ListQueryResultsForSubscription": {
+            "main": "./lib/actions/PolicyStates_ListQueryResultsForSubscription.js",
+            "title": "Queries policy states for the resources under the subscription.",
+            "description": "Queries policy states for the resources under the subscription.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PolicyStates_ListQueryResultsForSubscription.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PolicyStates_SummarizeForSubscription": {
+            "main": "./lib/actions/PolicyStates_SummarizeForSubscription.js",
+            "title": "Summarizes policy states for the resources under the subscription.",
+            "description": "Summarizes policy states for the resources under the subscription.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PolicyStates_SummarizeForSubscription.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PolicyStates_ListQueryResultsForSubscriptionLevelPolicyAssignment": {
+            "main": "./lib/actions/PolicyStates_ListQueryResultsForSubscriptionLevelPolicyAssignment.js",
+            "title": "Queries policy states for the subscription level policy assignment.",
+            "description": "Queries policy states for the subscription level policy assignment.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PolicyStates_ListQueryResultsForSubscriptionLevelPolicyAssignment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PolicyStates_SummarizeForSubscriptionLevelPolicyAssignment": {
+            "main": "./lib/actions/PolicyStates_SummarizeForSubscriptionLevelPolicyAssignment.js",
+            "title": "Summarizes policy states for the subscription level policy assignment.",
+            "description": "Summarizes policy states for the subscription level policy assignment.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PolicyStates_SummarizeForSubscriptionLevelPolicyAssignment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PolicyStates_ListQueryResultsForPolicyDefinition": {
+            "main": "./lib/actions/PolicyStates_ListQueryResultsForPolicyDefinition.js",
+            "title": "Queries policy states for the subscription level policy definition.",
+            "description": "Queries policy states for the subscription level policy definition.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PolicyStates_ListQueryResultsForPolicyDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PolicyStates_SummarizeForPolicyDefinition": {
+            "main": "./lib/actions/PolicyStates_SummarizeForPolicyDefinition.js",
+            "title": "Summarizes policy states for the subscription level policy definition.",
+            "description": "Summarizes policy states for the subscription level policy definition.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PolicyStates_SummarizeForPolicyDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PolicyStates_ListQueryResultsForPolicySetDefinition": {
+            "main": "./lib/actions/PolicyStates_ListQueryResultsForPolicySetDefinition.js",
+            "title": "Queries policy states for the subscription level policy set definition.",
+            "description": "Queries policy states for the subscription level policy set definition.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PolicyStates_ListQueryResultsForPolicySetDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PolicyStates_SummarizeForPolicySetDefinition": {
+            "main": "./lib/actions/PolicyStates_SummarizeForPolicySetDefinition.js",
+            "title": "Summarizes policy states for the subscription level policy set definition.",
+            "description": "Summarizes policy states for the subscription level policy set definition.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PolicyStates_SummarizeForPolicySetDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PolicyStates_ListQueryResultsForResourceGroup": {
+            "main": "./lib/actions/PolicyStates_ListQueryResultsForResourceGroup.js",
+            "title": "Queries policy states for the resources under the resource group.",
+            "description": "Queries policy states for the resources under the resource group.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PolicyStates_ListQueryResultsForResourceGroup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PolicyStates_SummarizeForResourceGroup": {
+            "main": "./lib/actions/PolicyStates_SummarizeForResourceGroup.js",
+            "title": "Summarizes policy states for the resources under the resource group.",
+            "description": "Summarizes policy states for the resources under the resource group.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PolicyStates_SummarizeForResourceGroup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PolicyStates_ListQueryResultsForResourceGroupLevelPolicyAssignment": {
+            "main": "./lib/actions/PolicyStates_ListQueryResultsForResourceGroupLevelPolicyAssignment.js",
+            "title": "Queries policy states for the resource group level policy assignment.",
+            "description": "Queries policy states for the resource group level policy assignment.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PolicyStates_ListQueryResultsForResourceGroupLevelPolicyAssignment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PolicyStates_SummarizeForResourceGroupLevelPolicyAssignment": {
+            "main": "./lib/actions/PolicyStates_SummarizeForResourceGroupLevelPolicyAssignment.js",
+            "title": "Summarizes policy states for the resource group level policy assignment.",
+            "description": "Summarizes policy states for the resource group level policy assignment.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PolicyStates_SummarizeForResourceGroupLevelPolicyAssignment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PolicyStates_ListQueryResultsForResource": {
+            "main": "./lib/actions/PolicyStates_ListQueryResultsForResource.js",
+            "title": "Queries policy states for the resource.",
+            "description": "Queries policy states for the resource.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PolicyStates_ListQueryResultsForResource.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PolicyStates_SummarizeForResource": {
+            "main": "./lib/actions/PolicyStates_SummarizeForResource.js",
+            "title": "Summarizes policy states for the resource.",
+            "description": "Summarizes policy states for the resource.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PolicyStates_SummarizeForResource.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PolicyStates_GetMetadata": {
+            "main": "./lib/actions/PolicyStates_GetMetadata.js",
+            "title": "Gets OData metadata XML document.",
+            "description": "Gets OData metadata XML document.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PolicyStates_GetMetadata.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

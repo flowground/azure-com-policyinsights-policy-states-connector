@@ -1,0 +1,44 @@
+{
+    "type": "object",
+    "properties": {
+        "policyStatesSummaryResource": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "latest"
+            ]
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        },
+        "_top": {
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 0
+        },
+        "_from": {
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+        },
+        "_to": {
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+        },
+        "_filter": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}
